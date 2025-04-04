@@ -1006,6 +1006,7 @@ func TestContainsNotContains(t *testing.T) {
 	interfaceList := []interface{}{"Hello World", 5, 2, []byte("Goodbye")}
 
 	simpleMap := map[interface{}]interface{}{"Hello": "World"}
+	strMap := map[string]string{"Hello": "World"}
 	var zeroMap map[interface{}]interface{}
 
 	cases := []struct {
@@ -1028,6 +1029,8 @@ func TestContainsNotContains(t *testing.T) {
 		{interfaceList, "World", false},
 		{simpleMap, "Hello", true},
 		{simpleMap, "Earth", false},
+		{strMap, "Hello", true},
+		{strMap, "Earth", false},
 		{zeroMap, "Bar", false},
 	}
 
